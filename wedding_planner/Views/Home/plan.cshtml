@@ -1,0 +1,62 @@
+@using Wedding.Models 
+@model WeddingPlan
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="~/css/styles.css" media="screen,projection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="~/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/clear">Logout</a></li>  
+        </ul>
+      </div>
+    </nav>
+    <div id='container' class="z-depth-3">
+       
+      <div class='form-container'>
+        <h5>Plan A Wedding:</h5>
+        <form asp-action="CreatePlan" asp-controller="Home" method="post">
+          <div class="row">
+            <div class="input-field col s6">
+              <label asp-for="PersonOne"></label>
+              <input asp-for="PersonOne" required> </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <label asp-for="PersonTwo"></label>
+              <input asp-for="PersonTwo" required> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <label asp-for="WeddingDate"></label>
+              <input type="date" asp-for="WeddingDate" class = "browser-default" required> 
+            </div>
+          </div>
+            <div class="row">
+            <div class="input-field col s6">
+              <label asp-for="VenueTitle"></label>
+              <input asp-for="VenueTitle"> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <label asp-for="VenueAddress"></label>
+              <input asp-for="VenueAddress" required> 
+            </div>
+          </div>
+          <button class="waves-effect waves-light btn" type='submit'>Create :)</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
