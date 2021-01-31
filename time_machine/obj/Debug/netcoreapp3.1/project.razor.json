@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/kieracastner/projects/bootcamp-projects/time_machine/TimeMachine.csproj",
+  "FilePath": "/Users/kieracastner/bootcamp-projects/time_machine/TimeMachine.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14392,7 +14392,7 @@
   "RootNamespace": "TimeMachine",
   "Documents": [
     {
-      "FilePath": "/Users/kieracastner/projects/bootcamp-projects/time_machine/Views/Home/index.cshtml",
+      "FilePath": "/Users/kieracastner/bootcamp-projects/time_machine/Views/Home/index.cshtml",
       "TargetPath": "Views\\Home\\index.cshtml",
       "FileKind": "mvc"
     }
