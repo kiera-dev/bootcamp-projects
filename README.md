@@ -24,8 +24,12 @@ Some of the projects I worked on during my coding bootcamp (in no particular ord
 	* See crud_assignement.png for more info.
 	* Learned how to use CRUD operations within Entity Framework.
 	* Learned how to hook up MySQL database to Entity Framework Core projects
-
-
+* Chefs & Dishes
+	* Tweak on the above project. Info about individual chefs can now be added and edited.
+	* See assignment.png in the prooject folder for more info. 
+* Models
+	* Learned how to use a ViewModel ¯\\\_(ツ)\_/¯
+	* See assignment.png in the project folder for more info.
 
 
 <br><br>
