@@ -1,0 +1,35 @@
+@using Crud.Models
+@model List<Dish>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="~/css/styles.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="~/js/materialize.min.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        @* <a href="" class="brand-logo"></a> *@
+        <ul id="nav-mobile" >
+          <li><a href="/new">Add a Dish</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id ="container" class="z-depth-3">
+     
+      <div id="content-container">
+        <div id="dish-container">
+          <h4>Recent Dishes:</h4>
+          @foreach(Dish food in Model)
+          {
+            <p><a href="/@food.DishId">@food.Name</a> by @food.Chef</p>
+          }
+      </div>
+    </body>
+    </div>
+</html>
