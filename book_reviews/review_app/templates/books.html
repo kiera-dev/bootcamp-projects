@@ -1,0 +1,38 @@
+<html>
+<body>
+  <head>
+  </head>
+
+  <p>Hello, {{ user.first_name }}</p>
+  <a href='/logout/'>Logout</a>
+  <a href='/books/'>Home</a>
+  <a href='/add/'>Add Book & Review</a>
+  <div id = 'container'>
+    <h4>Recent Book Reviews:</h4>
+    {% for review in recent_reviews %}
+    <a href='/reviews/{{ review.book.id }}/'>{{review.book.title}}</a>
+    <p>Rating: {{review.rating}}</p>
+    <p><a href='/users/{{ review.user.id }}/'>{{review.user.username}}</a> says:{{review.msg_content}} </p>
+    <p></p>
+    {% if review.user.id == user.id %}
+    <a href="/del_review/{{ review.id }}">Delete</a>
+    {% endif %}
+    <p>{{review.created_at}}</p>
+    <br>
+    <br>
+    {% endfor %}
+
+    <h4>All Books With Reviews:</h4>
+      {% for book in all_books %}
+        {% with title=book.title %}
+        {% with book_id=book.id %}
+          {% if book.reviews.all|length > 0 %}
+            <a href='/reviews/{{ book_id }}/'>{{title}}</a><br> 
+          {% endif %}
+        {% endwith %}
+        {% endwith %}
+      {% endfor %}
+  </div>
+</div>
+</body>
+</html>
