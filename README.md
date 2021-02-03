@@ -25,8 +25,9 @@ Some of the projects I worked on during my coding bootcamp (in no particular ord
 	* Learned how to use CRUD operations within Entity Framework.
 	* Learned how to hook up MySQL database to Entity Framework Core projects
 <br>
-**Python**
-* Number Game
+
+**Python**. 
+*  Number Game
 	* One of my first Python projects!
 	* Number between 1 - 100 is randomly selected. User must guess the number. 
 	* Learned how to use Django, how to use regular expressions, how to store data in sessions, & how to clear sessions
