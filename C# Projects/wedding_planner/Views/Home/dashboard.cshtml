@@ -1,0 +1,67 @@
+@using Wedding.Models
+@model List<WeddingPlan>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="~/css/styles.css" media="screen,projection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="~/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/plan">Plan</a></li>
+          <li><a href="/clear">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id='container' class="z-depth-3">
+       
+      <div id='content-container'>
+        <h5>Weddings:</h5>
+ <table>
+        <thead>
+          <tr>
+              <th>Wedding</th>
+              <th>Date</th>
+              <th>Guests</th>
+              <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach(WeddingPlan wedding in Model)
+          {
+            <tr>
+              <td><a href ="/info/@wedding.WeddingId"> @wedding.PersonOne & @wedding.PersonTwo</a></td>
+              <td>@wedding.WeddingDate</td>
+              <td>@wedding.GuestList.Count
+              </td>
+              <td>
+                @if (wedding.UserId == ViewBag.currentUser.UserId)
+                {
+                   <a href="/delwedding/@wedding.WeddingId">Delete This Wedding</a> 
+                }
+                else if(wedding.GuestList.Any(g =>g.UserId == ViewBag.currentUser.UserId))
+                {
+                 
+                  <a href="/delguest/@wedding.WeddingId">UnRSVP</a>    
+              
+                } 
+                else 
+                {
+                  <a href="/addguest/@wedding.WeddingId">RSVP</a> 
+                }   
+              </td>
+            </tr>
+          }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

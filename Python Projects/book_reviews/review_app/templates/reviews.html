@@ -1,0 +1,55 @@
+<html>
+<body>
+  <head>
+  </head>
+
+  <p>Hello, {{ user.first_name }}</p>
+  <a href='/logout/'>Logout</a>
+  <a href='/books/'>Home</a>
+  <a href='/add/'>Add Book & Review</a>
+  <div id = 'container'>
+    <div id = 'book-info'>
+      <h4>{{ book.title }}</h4>
+      <h4>Author(s):</h4>
+      {% for author in reviews %}
+      <p>{{ author.author.name }}</p>
+      {% endfor %}
+      <br>
+      <br>
+      <h4>Reviews:</h4>
+      {% for review in reviews %}
+      <p><a href='/users/{{ review.user.id }}/'>{{review.user.username}}</a> says: {{review.msg_content}}</p>
+      <p>Rating: {{review.rating}}</p>
+      <p>{{review.created_at}}</p>
+      {% if review.user.id == user_id %}
+      <a href="/del_review/{{ review.id }}">Delete</a>
+      {% endif %}
+      <br>
+      <br>
+      {% endfor %}
+    </div>
+    <div id = 'submit-review'>
+
+      <form action='/add_review/' method='post'>
+        {% csrf_token %}
+        <input id="title" type="hidden" name='title' value='{{ book.title }}'>
+        <input id="author" type="hidden" class="validate" name='author' value={{review.author.name}}>
+
+        <p>Add A Review...</p>
+        <textarea rows = "5" cols = "60" name = "review" placeholder="Review text..."></textarea>
+        <br>
+        <label for="rating">Rating:</label>
+        <select name="rating" id="rating">
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+        </select>
+        <button type='submit'>Submit</button>
+
+      </form>
+    </div>
+  </div>
+</body>
+</html>

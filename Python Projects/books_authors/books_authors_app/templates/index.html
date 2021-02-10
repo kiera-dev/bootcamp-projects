@@ -1,0 +1,75 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="static/css/styles.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo">Library</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/book/">Books</a></li>
+          <li><a href="/authors/">Authors</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id ='container' class="z-depth-3">
+     
+      <div id='form-container'>
+        <h4>Add a Book:</h4>
+        <form action='/add_book/' method='post'>
+          {% csrf_token %}
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="title" type="text" class="validate" name='title'>
+              <label class="active" for="title">Title</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="desc" type="text" class="validate" name='desc'>
+              <label class="active" for="desc">Description</label>
+            </div>
+          </div>
+          
+          <button class="waves-effect waves-light btn"
+          type='submit'>Add</button>
+        </section>
+      </form>
+    </div>
+    <div id=description-container class="z-depth-2">
+      <h4>Books</h4>
+      <table class="highlight">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+         {% for book in all_books %}
+         <tr>
+          <td>{{ book.id }}</td>
+          <td>{{ book.title }}</td>
+          <td><a href="/display_book/{{ book.id }}">More Info</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+
+
+</div>
+
+
+</body>
+</html>
