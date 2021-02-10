@@ -1,0 +1,52 @@
+.App {
+  /* text-align: center; */
+}
+
+html{
+  margin:0;
+  background-color: #D14526;
+  height:100%;
+
+}
+
+body{
+  height:100%;
+  display:flex;
+  flex-direction: column;
+}
+
+#top{
+  background-color: #D14526;
+  color: white;
+  text-align: center;
+}
+
+#container{
+  background-color: whitesmoke;
+  padding-top: 20px;
+  display:flex;
+  flex-direction: row;
+  min-height: 500px;
+  flex: 1 0 auto;
+}
+
+.half-container{
+  margin:30px;
+  width: 49%;
+  align-items: center;
+}
+
+.half-container img{
+  width: 100%;
+  height: auto;
+}
+
+button{
+  margin-left: 15px;
+}
+
+
+.mdl-mini-footer{
+  display:flex;
+  flex-shrink: 0;
+}
