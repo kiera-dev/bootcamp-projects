@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+
+.form-entry{
+  margin:5px;
+}
+
+.error-text{
+  color:red;
+  font-size: smaller;
+}
+
+.validerror{
+  color:red;
+  font-size: 2em;
+}
